@@ -33,7 +33,7 @@ PDF_EXPORT <- TRUE
 # Holds all the links that were inserted for placement at the end
 links <- c()
 
-# setwd("/Users/8yt/Documents/Personal/cv-master/")
+setwd("/Users/8yt/Documents/Personal/cv-resume/")
 
 source('parsing_functions.R')
 
@@ -135,7 +135,7 @@ Alice Townsend {#title}
 --------------------------------------------------------------------------------
 
 ```{r}
-intro_text <- "Computational biologist with expertise in multi-omics data integration, network biology, and single-nuclei transcriptomics, with a strong background applying these approaches to biomedical research. Experienced in developing computational methods, performing statistical analyses, and visualizing complex biological datasets using R and Python. Skilled in analyzing large-scale biological datasets on high-performance computing systems. Interested in roles involving computational biology, bioinformatics, data science, software development, and data visualization."
+intro_text <- "Computational biologist with expertise in multi-omics data integration, network biology, and single-nuclei transcriptomics, with a strong background applying these approaches to biomedical research. Experienced in developing computational methods, performing statistical analyses, and visualizing complex biological datasets using R and Python. Skilled in analyzing and interpreting large-scale biological datasets on high-performance computing systems. Interested in roles involving computational biology, bioinformatics, data science, software development, and data visualization."
 
 cat(sanitize_links(intro_text))
 ```
