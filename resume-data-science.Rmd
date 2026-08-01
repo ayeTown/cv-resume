@@ -1,0 +1,206 @@
+---
+title: "AT Resume"
+author: Alice Townsend
+date: "`r Sys.Date()`"
+output:
+  pagedown::html_resume:
+    css: ['css/custom_resume.css', 'css/styles.css', 'resume']
+    # set it to true for a self-contained HTML page but it'll take longer to render
+    self_contained: true
+knit: pagedown::chrome_print
+---
+
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+  results = 'asis', 
+  echo = FALSE,
+  fig = TRUE, fig.show = TRUE
+)
+library(tidyverse)
+library(tidyr)
+library(glue)
+library(stringr)
+
+# To do:
+# Develop a second version for resume and also develop CV
+# Adjust for non-bio version which rewords bio related terms, etc.
+# Quantify outcomes for each bullet point under professional experience section
+
+# Set this to true to have links turned into footnotes at the end of the document
+PDF_EXPORT <- TRUE
+
+# Holds all the links that were inserted for placement at the end
+links <- c()
+
+# setwd("/Users/8yt/Documents/Personal/cv-master/")
+
+source('parsing_functions.R')
+
+
+# First let's get the data, filtering to only the items tagged as
+# Resume items
+position_data <- read_csv('positions.csv',show_col_types = FALSE) %>% 
+  filter(in_resume)
+# %>% 
+#   mutate(
+#     # Build some custom sections by collapsing others
+#     section = case_when(
+#       section %in% c('education','research_positions', 'industry_positions','teaching_positions') ~ 'positions',
+#       # section %in% c('data_science_writings', 'by_me_press') ~ 'writings',
+#       TRUE ~ section
+#     )
+#   ) 
+
+
+```
+
+
+Aside
+================================================================================
+
+
+![logo](AT.jpg){width=100%}
+
+Contact {#contact}
+--------------------------------------------------------------------------------
+
+
+
+- <i class="fa fa-envelope"></i>  alice.e.townsend@gmail.com
+- <i class="fa fa-github"></i> github.com/ayeTown
+<!-- - <i class="fa fa-instagram"></i> [atownabstract](https://www.instagram.com/atownabstract/?hl=en) -->
+<!-- - <i class="fa fa-palette"></i> [check out my art :)](http://www.atownabstract.etsy.com/) -->
+- <i class="fa fa-phone"></i> (408) 438-3465
+
+
+
+Language Skills {#skills}
+--------------------------------------------------------------------------------
+
+![skills](Skillsv2.png){width=100%}
+
+
+Open Source {#open-source}
+--------------------------------------------------------------------------------
+
+All projects available at `github.com/ayeTown/<name>`<br><br>
+`MENTOR`: R package for multi-omics data integration <br><br>
+`MOANA`: R Shiny application for multi-omics data viz
+
+<br>
+
+Graduate Courses {#graduate-courses}
+--------------------------------------------------------------------------------
+
+Data Science \& Computing, Visual Design, Advanced Bioinformatics, Machine Learning, Natural Language Processing, Deep Learning, Statistics
+
+<!-- Modern Biostatistics, Fundamentals of Probability, Statistical Computing, Epidemiologic Methods, Advanced Regression, Survival Analysis, Advanced Probability, Principles of Modern Biostatistics, Statistical Computing -->
+
+
+<!-- Activities {#activities} -->
+<!-- -------------------------------------------------------------------------------- -->
+
+<!-- - <ul style="list-style-type:circle;"> -->
+<!--   <!-- - <li>Leader of Social and Community Committee, Belmont University, 2018-2019</li> -->
+<!--   <!-- - <li>Professional Mathematics Tutor</li> -->
+<!--   <!-- - <li>Treasurer of Belmont Mathematical Association, 2013-2014</li> -->
+<!--   - <li>Nashville Rock 'n Roll Marathon, 2014</li> -->
+<!--   - <li>Summited Mt. Whitney, 2010</li> -->
+<!--   - <li>Chelsea Football Club Fan since 1992</li> -->
+<!-- - </ul> -->
+
+
+
+<!-- More info {#more-info} -->
+<!-- -------------------------------------------------------------------------------- -->
+
+<!-- Full CV at <i class="fa fa-link"></i> [ayetownsend.com](http://www.ayetownsend.com/) for more complete list of positions. -->
+
+
+Disclaimer {#disclaimer}
+--------------------------------------------------------------------------------
+
+Made w/ [**pagedown**](https://github.com/rstudio/pagedown). 
+
+Last updated on `r Sys.Date()`.
+
+
+
+
+Main
+================================================================================
+
+Alice Townsend {#title}
+--------------------------------------------------------------------------------
+
+```{r}
+intro_text <- "Data scientist with a background in computational biology with expertise in multi-omics data integration, network biology, and single-cell transcriptomics. Experienced in developing computational methods, statistical analyses, and visualization tools in R and Python, and running large-scale analyses on high-performance computing systems. Interested in roles involving data science, computational biology, software development, and data visualization."
+# intro_text <- "I am a PhD candidate in the Data Science & Engineering program at the Bredesen Center for Interdisciplinary Research and Graduate Education, University of Tennessee, Knoxville. I am currently working as a graduate research assistant in Dr. Daniel Jacobson's computational systems biology group at Oak Ridge National Laboratory. My research focuses on developing systems biology multi-omics data tools for integration, visualization, and biological interpretation, and the application of these tools to complex human diseases including Niemann-Pick Type C disease."
+
+cat(sanitize_links(intro_text))
+```
+
+
+Professional Experience {data-icon=suitcase}
+--------------------------------------------------------------------------------
+
+```{r}
+position_data %>% print_section('industry_positions')
+```
+
+
+Skills {data-icon=laptop}
+--------------------------------------------------------------------------------
+```{r}
+position_data %>% print_section('skills')
+```
+
+Education {data-icon=graduation-cap data-concise=true}
+--------------------------------------------------------------------------------
+
+```{r}
+position_data %>% print_section('education')
+```
+
+
+<!-- Publications {data-icon=book} -->
+<!-- -------------------------------------------------------------------------------- -->
+
+<!-- ```{r} -->
+<!-- position_data %>% print_section('academic_articles') -->
+<!-- ``` -->
+
+
+<!-- Teaching Experience {data-icon=chalkboard-teacher} -->
+<!-- -------------------------------------------------------------------------------- -->
+
+<!-- ```{r} -->
+<!-- position_data %>% print_section('teaching_positions') -->
+<!-- ``` -->
+
+
+<!-- Awards {data-icon=award} -->
+<!-- -------------------------------------------------------------------------------- -->
+
+<!-- ```{r} -->
+<!-- position_data %>% print_section('awards') -->
+<!-- ``` -->
+
+
+
+<!-- Research Experience {data-icon=laptop} -->
+<!-- -------------------------------------------------------------------------------- -->
+
+<!-- ```{r} -->
+<!-- position_data %>% print_section('research_positions') -->
+<!-- ``` -->
+
+<!-- Activities {data-icon=award} -->
+<!-- -------------------------------------------------------------------------------- -->
+
+<!-- ```{r} -->
+<!-- position_data %>% print_section('awards') -->
+<!-- ``` -->
+
+

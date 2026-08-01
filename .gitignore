@@ -1,0 +1,14 @@
+.Rproj.user/
+*Rproj
+.Rhistory
+.Rapp.history
+.DS_Store
+
+# Rendered outputs
+*.html
+*.pdf
+*_files/
+
+# Temp / local files
+~$*
+*.numbers

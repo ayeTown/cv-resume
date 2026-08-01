@@ -1,0 +1,174 @@
+
+* {
+  /* Override default right margin for sidebar*/
+  --pagedjs-margin-right: 0.2in !important;
+  --pagedjs-margin-left: 0.2;
+  --pagedjs-margin-top: 0.3in;
+  --pagedjs-margin-bottom: 0.3in;
+}
+
+.pagedjs_page:not(:first-child) .pagedjs_page_content {
+    padding-top: 0.35in;
+}
+
+
+[data-id="main"] { 
+  padding: 0 0.05in 0 0.05in;
+}
+
+[data-id="title"] {
+  margin: 0 0.5in 0.08in -0.4in; /*-0.5in;*/
+}
+
+/* Increase intro paragraph size under name */
+[data-id="title"] p {
+  font-size: 0.75rem;
+}
+
+/* Increase professional experience bullet text */
+[data-id="main"] li {
+  font-size: 0.72rem;
+}
+
+/* Consistent vertical spacing between main-column sections */
+#main .main-block {
+  margin-top: 0.2in;
+  margin-left: -0.1in;
+}
+
+/* Last entry in each section adds variable bottom space by default */
+#main .blocks:last-child .decorator {
+  margin-bottom: 0;
+}
+
+/* Bullet lists in Professional Experience add extra gap before the next section */
+#main .main-block .blocks:last-child ul {
+  margin-bottom: 0;
+}
+
+/* Non-concise sections (Experience, Skills) have uneven bottom margins on content */
+#main .main-block:not(.concise) .details div {
+  margin-bottom: 0;
+}
+
+/* Concise sections (Education) use padding instead of margin on entries */
+#main .main-block.concise .blocks:last-child .details div:not(.concise) {
+  padding-bottom: 0;
+}
+
+
+[data-id="main"]{
+  width: calc(var(--main-width) + 0.2in);
+}
+
+.aside {
+  height: 100%;
+  width: var(--sidebar-width) !important;
+  padding-left: 0.75rem;
+  padding-right: 0;
+  padding-top: 0rem;
+}
+
+.aside .level2 {
+  margin-top: 0.315in;
+}
+
+.aside p {
+  margin-block-start: 0.75em;
+  margin-block-end: 0;
+}
+
+[data-id="skills"] ul {
+  margin: 0.05in 0 0.05in;
+}
+
+[data-id="contact"] ul {
+  padding-left: 0 !important;
+  margin-top: 0.75rem;
+}
+
+[data-id="disclaimer"] p {
+  margin-block-start: 0.15em;
+  margin-block-end: 0.15em;
+}
+
+.resume-spacing {
+  display: block;
+  height: 3.5px;
+}
+
+/* Slightly bold skill category labels (Programming, Databases, etc.) */
+#skills-1 .skill-label {
+  font-weight: 600;
+}
+
+/* Extra space between Technical and Professional (padding keeps timeline continuous) */
+#skills-1 #professional > .decorator {
+  padding-top: calc(var(--row-blocks-padding-top) + 0.1in) !important;
+}
+
+#skills-1 #professional > .date {
+  padding-top: calc(var(--row-blocks-padding-top) + 0.25rem + 0.1in) !important;
+}
+
+#skills-1 #professional > .details {
+  padding-top: calc(var(--row-blocks-padding-top) - 0.05rem + 0.1in) !important;
+}
+
+/* Align timeline dot with Professional skills text (floated .place), not the heading */
+#skills-1 #professional > .decorator::before {
+  top: calc(var(--decorator-outer-offset-top) + 1.15em);
+}
+
+#skills-1 #professional > .decorator::after {
+  top: calc(var(--decorator-outer-offset-top) + var(--decorator-border-width) + 1.15em);
+}
+
+/* Center section header icons on the timeline (Activities) */
+#main h2 > .fa-palette {
+  display: inline-block;
+  left: calc(-1 * var(--decorator-horizontal-margin) + 1px - 0.5em);
+  width: 1em;
+  text-align: center;
+  top: 2pt;
+}
+
+/* Awards, Publications, Education — nudge very slightly right */
+#main h2 > .fa-award {
+  display: inline-block;
+  left: calc(-1 * var(--decorator-horizontal-margin) + 1px - 0.5em + 0.325pt);
+  width: 1em;
+  text-align: center;
+  top: 0pt;
+}
+
+#main h2 > .fa-book {
+  display: inline-block;
+  left: calc(-1 * var(--decorator-horizontal-margin) + 1px - 0.5em + 0.5pt);
+  width: 1em;
+  text-align: center;
+  top: 0pt;
+}
+
+#main h2 > .fa-graduation-cap {
+  left: calc(var(--main-blocks-title-icon-offset-left) - 2pt + 0.5pt);
+  top: 2pt;
+}
+
+/* Skills — slight left nudge on the timeline */
+#main h2 > .fa-laptop {
+  display: inline-block;
+  left: calc(-1 * var(--decorator-horizontal-margin) + 1px - 0.5em + 1pt);
+  width: 1em;
+  text-align: center;
+  top: 0pt;
+}
+
+/* Teaching — further left on the timeline */
+#main h2 > .fa-chalkboard-teacher {
+  display: inline-block;
+  left: calc(-1 * var(--decorator-horizontal-margin) + 1px - 0.5em - 3.5pt);
+  width: 1em;
+  text-align: center;
+  top: 2pt;
+}
